@@ -3,18 +3,23 @@ import * as ReactDOM from "react-dom";
 
 import { ListMovies, NewMovieForm } from "../application";
 import { Simulate } from "react-dom/test-utils";
+import { createRoot } from "react-dom/client";
 
 describe("movies application", () => {
   it("shows movie list", () => {
     const element = document.createElement("div");
-    ReactDOM.render(<ListMovies />, element);
+
+    ReactDOM.render(<ListMovies movies={["Movie 1", "Movie 2"]} />, element);
+
     expect(element.querySelector("h1").innerHTML).toEqual("List Movies");
     expect(element.innerHTML).toMatchSnapshot();
   });
 
   it("shows new movie form", () => {
     const element = document.createElement("div");
-    ReactDOM.render(<NewMovieForm />, element);
+    const root = createRoot(element);
+    root.render(<NewMovieForm onAddMovie={jest.fn()} />);
+    //ReactDOM.render(<NewMovieForm onAddMovie={jest.fn()}/>, element);
     expect(element.innerHTML).toMatchSnapshot();
   });
 
@@ -31,14 +36,14 @@ describe("movies application", () => {
       // find the element we wish to change, based on its data-testid
       // in this case data-testid = title
       element.querySelector("[data-testid=title]"),
-      { target: { value: "Movie 1" } }
+      { target: { value: "Movie 1" } } as any
     );
 
     Simulate.change(
       // find the element we wish to change, based on its data-testid
       // in this case data-testid = year
       element.querySelector("[data-testid=year]"),
-      { target: { value: "2022" } }
+      { target: { value: "2022" } } as any
     );
 
     Simulate.submit(element.querySelector("form"));
