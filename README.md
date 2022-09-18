@@ -10,7 +10,7 @@
   * Testing submission
 * [x] GitHub actions
 * [x] Coverage coveralls.io
-* [ ] Prettier
+* [x] Prettier
 * [ ] Typescript
 * [ ] Eslint (?)
 
@@ -18,3 +18,8 @@
 # cheat sheet continued
 To update snapshot:
 * npm run test -- -u
+
+Scripts:
+* "Command1 && Command2" - run sequentially, if there are no errors
+* "Command1 ; Command2" - run sequentially, stop if there are errors
+* "Command1 || Command2" - run sequentially, only if there are errors

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel index.html --open",
-    "test": "jest",
-    "verify": "npm run format:check && jest --collectCoverage",
+    "test": "jest --collectCoverage",
     "format": "prettier --write *.{jsx,js} __tests__/**/*.{jsx,js}",
-    "format:check": "prettier --check *.{jsx,js} __tests__/**/*.{jsx,js}"
+    "format:check": "prettier --check *.{jsx,js} __tests__/**/*.{jsx,js}",
+    "verify": "npm run format:check ; jest --collectCoverage"
   },
   "repository": {
     "type": "git"
