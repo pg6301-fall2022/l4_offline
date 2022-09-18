@@ -11,3 +11,8 @@
 * [ ] Prettier
 * [ ] Typescript
 * [ ] Eslint (?)
+
+
+# cheat sheet continued
+To update snapshot:
+* npm run test -- -u

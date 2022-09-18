@@ -8,7 +8,7 @@ describe ("movies application", () => {
         const element = document.createElement("div");
         ReactDOM.render(<ListMovies/>, element);
         expect(element.querySelector("h1").innerHTML)
-            .toEqual("List movies");
+            .toEqual("List Movies");
         expect(element.innerHTML).toMatchSnapshot();
     })
     })
