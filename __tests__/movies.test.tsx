@@ -11,7 +11,7 @@ describe("movies application", () => {
 
     ReactDOM.render(<ListMovies movies={["Movie 1", "Movie 2"]} />, element);
 
-    expect(element.querySelector("h1").innerHTML).toEqual("List Movies");
+    expect(element.querySelector("h1")?.innerHTML).toEqual("List Movies");
     expect(element.innerHTML).toMatchSnapshot();
   });
 
@@ -35,18 +35,18 @@ describe("movies application", () => {
     Simulate.change(
       // find the element we wish to change, based on its data-testid
       // in this case data-testid = title
-      element.querySelector("[data-testid=title]"),
+      element.querySelector("[data-testid=title]")!,
       { target: { value: "Movie 1" } } as any
     );
 
     Simulate.change(
       // find the element we wish to change, based on its data-testid
       // in this case data-testid = year
-      element.querySelector("[data-testid=year]"),
+      element.querySelector("[data-testid=year]")!,
       { target: { value: "2022" } } as any
     );
 
-    Simulate.submit(element.querySelector("form"));
+    Simulate.submit(element.querySelector("form")!);
 
     expect(onAddMovie).toHaveBeenCalledWith({
       title: "Movie 1",
